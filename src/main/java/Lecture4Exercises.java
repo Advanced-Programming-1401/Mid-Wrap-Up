@@ -5,7 +5,11 @@ public class Lecture4Exercises {
      *   lecture 4 page 15
      */
     public long factorial(int n) {
-        return 0L;
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
     }
 
     /*
@@ -14,7 +18,17 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public long fibonacci(int n) {
-        return 0;
+        if (n <= 1) {
+            return n;
+        }
+        long fib = 1;
+        long prevFib = 1;
+        for (int i = 2; i < n; i++) {
+            long temp = fib;
+            fib += prevFib;
+            prevFib = temp;
+        }
+        return fib;
     }
 
     /*
@@ -22,7 +36,11 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public String reverse(String word) {
-        return null;
+        StringBuilder reversed = new StringBuilder();
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversed.append(word.charAt(i));
+        }
+        return reversed.toString();
     }
 
     /*
@@ -32,7 +50,26 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public boolean isPalindrome(String line) {
-        return false;
+        String lowercaseLine = line.toLowerCase(); // convert to lowercase for case-insensitive comparison
+        int i = 0; // start from the beginning of the string
+        int j = lowercaseLine.length() - 1; // start from the end of the string
+        while (i < j) { // while there are still characters to compare
+            // skip non-alphanumeric characters from the beginning of the string
+            while (i < j && !Character.isLetterOrDigit(lowercaseLine.charAt(i))) {
+                i++;
+            }
+            // skip non-alphanumeric characters from the end of the string
+            while (i < j && !Character.isLetterOrDigit(lowercaseLine.charAt(j))) {
+                j--;
+            }
+            // compare the current characters (ignoring case)
+            if (Character.toLowerCase(lowercaseLine.charAt(i)) != Character.toLowerCase(lowercaseLine.charAt(j))) {
+                return false; // not a palindrome
+            }
+            i++; // move to the next character from the beginning
+            j--; // move to the next character from the end
+        }
+        return true; // palindrome
     }
 
     /*
@@ -47,6 +84,25 @@ public class Lecture4Exercises {
      *   lecture 4 page 26
      */
     public char[][] dotPlot(String str1, String str2) {
-        return null;
+
+        int len1 = str1.length();
+        int len2 = str2.length();
+        char[][] matrix = new char[len1][len2]; // create a 2D character array to store the dot matrix
+        // initialize the matrix with spaces
+        for (int i = 0; i < len1; i++) {
+            for (int j = 0; j < len2; j++) {
+                matrix[i][j] = ' ';
+            }
+        }
+        // fill the matrix with dots for matching characters
+        for (int i = 0; i < len1; i++) {
+            for (int j = 0; j < len2; j++) {
+                if (str1.charAt(i) == str2.charAt(j)) {
+                    matrix[i][j] = '*';
+                }
+            }
+        }
+        return matrix; // return the dot matrix
+
     }
 }
