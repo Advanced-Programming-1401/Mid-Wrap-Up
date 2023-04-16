@@ -5,7 +5,11 @@ public class Lecture4Exercises {
      *   lecture 4 page 15
      */
     public long factorial(int n) {
-        return 0L;
+        int ans = 1;
+        for (int i = n  ; i > 0 ; i-- ){
+            ans *= i;
+        }
+        return ans;
     }
 
     /*
@@ -14,7 +18,12 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public long fibonacci(int n) {
-        return 0;
+        if(n == 1 || n ==2){
+            return 1;
+        }
+        else{
+            return fibonacci(n - 2) + fibonacci(n - 1);
+        }
     }
 
     /*
@@ -22,7 +31,17 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public String reverse(String word) {
-        return null;
+
+        String reverse="";
+        char changer;
+
+        for (int i=0; i<word.length(); i++)
+        {
+            changer = word.charAt(i);
+            reverse= changer+reverse;
+        }
+
+        return reverse;
     }
 
     /*
@@ -32,6 +51,9 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public boolean isPalindrome(String line) {
+        if(reverse(line) == line) {
+            return  true;
+        }
         return false;
     }
 
@@ -47,6 +69,7 @@ public class Lecture4Exercises {
      *   lecture 4 page 26
      */
     public char[][] dotPlot(String str1, String str2) {
+        
         return null;
     }
 }

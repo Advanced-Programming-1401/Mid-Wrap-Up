@@ -6,7 +6,18 @@ public class Lecture5Exercises {
      *   lecture 5 page 14
      */
     public String weakPassword(int length) {
-        return null;
+
+        StringBuilder str = new StringBuilder(length);
+        String lowerCase = "abcdefghijklmnopqrstuvxyz";
+
+        for(int i = 0 ; i < length ; i++) {
+
+            int ch = (int) (lowerCase.length() * Math.random());
+
+            str.append(lowerCase.charAt(ch));
+
+        }
+        return str;
     }
 
     /*
@@ -15,7 +26,43 @@ public class Lecture5Exercises {
      *   lecture 5 page 14
      */
     public String strongPassword(int length) throws Exception {
-        return null;
+
+
+        StringBuilder str = new StringBuilder(length);
+        StringBuilder str2 = new StringBuilder(length);
+        StringBuilder str3 = new StringBuilder(length);
+        StringBuilder str4 = new StringBuilder(length);
+
+        String word = "abcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String special = "?!@#$%^&*";
+        String number = "1234567890";
+        String all = "abcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVWXYZ?!@#$%^&*1234567890";
+
+        if(length >= 3 ){
+
+            int ch = (int) (word.length() * Math.random());
+            int ch1 = (int) (special.length() * Math.random());
+            int ch2 = (int) (number.length() * Math.random());
+
+
+            str.append(word.charAt(ch));
+            str2.append(special.charAt(ch1));
+            str3.append(number.charAt(ch2));
+
+
+            System.out.print(str); System.out.print(str2); System.out.print(str3);
+            length = length- 3;
+
+        }
+
+        for(int i = 0 ; i < length ; i++) {
+
+            int ch3 =  (int) (all.length() * Math.random());
+            str4.append(all.charAt(ch3));
+
+
+        }
+        return str4;
     }
 
     /*
@@ -27,6 +74,17 @@ public class Lecture5Exercises {
      *   lecture 5 page 17
      */
     public boolean isFiboBin(int n) {
-        return false;
+
+        Lecture4Exercises fib = new Lecture4Exercises;
+        for(int i = 0 ; i < n ; i++){
+
+            ans = fib.fibonacci(i)+ Integer.parseInt(Integer.toBinaryString(fib.fibonacci(i)));;
+
+            if(n == ans){
+                return true;
+            }
+        }
+            return false;
+
     }
 }
