@@ -1,5 +1,8 @@
 import java.util.List;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.lang.String;
+import java.util.regex.Pattern;
 public class Lecture6Exercises {
 
     /*
@@ -8,7 +11,11 @@ public class Lecture6Exercises {
      *   lecture 6 page  16
      */
     public long calculateEvenSum(int[] arr) {
-        return 0L;
+        long sum = 0L;
+        for (int i = 0; i < arr.length; i += 2) {
+            sum += arr[i];
+        }
+        return sum;
     }
 
     /*
@@ -17,7 +24,11 @@ public class Lecture6Exercises {
      *   lecture 6 page 16
      */
     public int[] reverseArray(int[] arr) {
-        return null;
+        int[] reversedArr = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            reversedArr[arr.length - 1 - i] = arr[i];
+        }
+        return reversedArr;
     }
 
     /*
@@ -25,7 +36,26 @@ public class Lecture6Exercises {
      *   lecture 6 page 21
      */
     public double[][] matrixProduct(double[][] m1, double[][] m2) throws RuntimeException {
-        return null;
+        int m1Rows = m1.length;
+        int m2Rows = m2.length;
+        int m1Cols = m1[0].length;
+        int m2Cols = m2[0].length;
+
+        if (m1Cols != m2Rows) {
+            throw new RuntimeException("Matrices cannot be multiplied");
+        }
+
+        double[][] result = new double[m1Rows][m2Cols];
+
+        for (int i = 0; i < m1Rows; i++) {
+            for (int j = 0; j < m2Cols; j++) {
+                for (int k = 0; k < m1Cols; k++) {
+                    result[i][j] += m1[i][k] * m2[k][j];
+                }
+            }
+        }
+
+        return result;
     }
 
     /*
@@ -34,7 +64,12 @@ public class Lecture6Exercises {
      *   lecture 6 page 30
      */
     public List<List<String>> arrayToList(String[][] names) {
-        return null;
+        List<List<String>> result = new ArrayList<>();
+        for (String[] arr : names) {
+            List<String> innerList = new ArrayList<>(Arrays.asList(arr));
+            result.add(innerList);
+        }
+        return result;
     }
 
     /*
@@ -43,7 +78,17 @@ public class Lecture6Exercises {
      *   lecture 6 page 30
      */
     public List<Integer> primeFactors(int n) {
-        return null;
+        List<Integer> factors = new ArrayList<>();
+        int divisor = 2;
+        while (n > 1) {
+            if (n % divisor == 0) {
+                factors.add(divisor);
+                n /= divisor;
+            } else {
+                divisor++;
+            }
+        }
+        return factors;
     }
 
     /*
@@ -51,6 +96,13 @@ public class Lecture6Exercises {
      *   lecture 6 page 30
      */
     public List<String> extractWord(String line) {
-        return null;
+        List<String> words = new ArrayList<>();
+        String[] tokens = line.split("\\W+");
+        for (String token : tokens) {
+            if (!token.isEmpty()) {
+                words.add(token);
+            }
+        }
+        return words;
     }
 }
