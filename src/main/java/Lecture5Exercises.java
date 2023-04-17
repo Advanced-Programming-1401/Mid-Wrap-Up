@@ -75,16 +75,16 @@ public class Lecture5Exercises {
      */
     public boolean isFiboBin(int n) {
 
-        Lecture4Exercises fib = new Lecture4Exercises();
-        for(int i = 0 ; i < n ; i++){
-
-            int ans = (int) (fib.fibonacci(i)+ Integer.parseInt(Integer.toBinaryString((int) fib.fibonacci(i))));
-
-            if(n == ans){
+        int num1 = 0;
+        int num2 = 1;
+        while (num2 <= n) {
+            int end = num1 + num2;
+            if ((n - num2) == Integer.bitCount(end)) {
                 return true;
             }
+            num1 = num2;
+            num2 = end;
         }
         return false;
-
     }
 }
