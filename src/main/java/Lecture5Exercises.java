@@ -5,7 +5,7 @@ public class Lecture5Exercises {
      *   given length using lower case letters
      *   lecture 5 page 14
      */
-    public String weakPassword(int length) {
+    public StringBuilder weakPassword(int length) {
 
         StringBuilder str = new StringBuilder(length);
         String lowerCase = "abcdefghijklmnopqrstuvxyz";
@@ -25,7 +25,7 @@ public class Lecture5Exercises {
      *   given length and at least 1 digit and 1 special character
      *   lecture 5 page 14
      */
-    public String strongPassword(int length) throws Exception {
+    public StringBuilder strongPassword(int length) throws Exception {
 
 
         StringBuilder str = new StringBuilder(length);
@@ -75,16 +75,16 @@ public class Lecture5Exercises {
      */
     public boolean isFiboBin(int n) {
 
-        Lecture4Exercises fib = new Lecture4Exercises;
+        Lecture4Exercises fib = new Lecture4Exercises();
         for(int i = 0 ; i < n ; i++){
 
-            ans = fib.fibonacci(i)+ Integer.parseInt(Integer.toBinaryString(fib.fibonacci(i)));;
+            int ans = (int) (fib.fibonacci(i)+ Integer.parseInt(Integer.toBinaryString((int) fib.fibonacci(i))));
 
             if(n == ans){
                 return true;
             }
         }
-            return false;
+        return false;
 
     }
 }

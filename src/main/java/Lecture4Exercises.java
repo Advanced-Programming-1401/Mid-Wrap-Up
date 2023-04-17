@@ -38,7 +38,7 @@ public class Lecture4Exercises {
         for (int i=0; i<word.length(); i++)
         {
             changer = word.charAt(i);
-            reverse= changer+reverse;
+            reverse= changer + reverse;
         }
 
         return reverse;
@@ -68,8 +68,20 @@ public class Lecture4Exercises {
      *   o           *
      *   lecture 4 page 26
      */
-    public char[][] dotPlot(String str1, String str2) {
-        
-        return null;
+    public void dotPlot(String str1, String str2) {
+
+        System.out.print("  ");
+        for (int j = 0; j < str1.length(); j++) {
+            System.out.print(str1.charAt(j) + " ");
+        }
+        System.out.println();
+        for (int i = 0; i < str2.length(); i++) {
+            System.out.print(str2.charAt(i) + " ");
+            for (int j = 0; j < str1.length(); j++) {
+                System.out.print(str2.charAt(i) == str1.charAt(j) ? "* " : "  ");
+            }
+            System.out.println();
+        }
     }
+
 }

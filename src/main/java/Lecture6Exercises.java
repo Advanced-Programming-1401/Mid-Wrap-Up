@@ -1,5 +1,6 @@
 import java.util.List;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 public class Lecture6Exercises {
 
     /*
@@ -10,7 +11,7 @@ public class Lecture6Exercises {
     public long calculateEvenSum(int[] arr) {
         int sum = 0;
         for(int i = 0 ; i < arr.length ; i++){
-            sum+=arr[i]
+            sum+=arr[i];
         }
         return sum;
     }
@@ -33,12 +34,9 @@ public class Lecture6Exercises {
         }
 
 
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(reverse[i]);
-        }
-
-        return null;
+        return reverse;
     }
+
     /*
      *   implement a function that calculate product of two 2-dim matrices
      *   lecture 6 page 21
@@ -112,9 +110,9 @@ public class Lecture6Exercises {
      *   implement a function that return a list of words in a given string
      *   lecture 6 page 30
      */
-    public List<String> extractWord(String line) {
+    public String extractWord(String line) {
 
-        String[] words = word.split("\\W+");
+        String[] words = line.split("\\W+");
         return  Arrays.toString(words);
 
     }
