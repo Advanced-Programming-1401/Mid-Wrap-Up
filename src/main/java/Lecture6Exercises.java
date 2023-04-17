@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Lecture6Exercises {
@@ -8,7 +9,11 @@ public class Lecture6Exercises {
      *   lecture 6 page  16
      */
     public long calculateEvenSum(int[] arr) {
-        return 0L;
+        long sum = 0;
+        for (int i = 0; i < arr.length; i += 2) {
+            sum += arr[i];
+        }
+        return sum;
     }
 
     /*
@@ -17,7 +22,11 @@ public class Lecture6Exercises {
      *   lecture 6 page 16
      */
     public int[] reverseArray(int[] arr) {
-        return null;
+        int[] reversedArray = new int[arr.length];
+        for (int i = arr.length-1; i >= 0; i--) {
+            reversedArray[arr.length-1-i] = arr[i];
+        }
+        return reversedArray;
     }
 
     /*
@@ -25,7 +34,20 @@ public class Lecture6Exercises {
      *   lecture 6 page 21
      */
     public double[][] matrixProduct(double[][] m1, double[][] m2) throws RuntimeException {
-        return null;
+        double[][] matrixProduct = new double[m1.length][m2[0].length];
+        if (m1[0].length != m2.length) {
+            throw new RuntimeException();
+        }
+        for (int i = 0; i < m1.length; i++) {
+            for (int j = 0; j < m2[0].length; j++) {
+                double sum = 0;
+                for (int k = 0; k < m1[0].length; k++) {
+                    sum += m1[i][k] * m2[k][j];
+                }
+                matrixProduct[i][j] = sum;
+            }
+        }
+        return matrixProduct;
     }
 
     /*
@@ -34,7 +56,15 @@ public class Lecture6Exercises {
      *   lecture 6 page 30
      */
     public List<List<String>> arrayToList(String[][] names) {
-        return null;
+        List<List<String>> arrayToList = new ArrayList<>();
+        for (int i = 0; i < names.length; i++) {
+            ArrayList<String> aL = new ArrayList<>();
+            for (int j = 0; j < names[i].length; j++) {
+                aL.add(names[i][j]);
+            }
+            arrayToList.add(aL);
+        }
+        return arrayToList;
     }
 
     /*
@@ -43,7 +73,22 @@ public class Lecture6Exercises {
      *   lecture 6 page 30
      */
     public List<Integer> primeFactors(int n) {
-        return null;
+        List<Integer> primeFactorsOfInt = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            if (n%i == 0 && isPrime(i)) {
+                primeFactorsOfInt.add(i);
+            } 
+        }
+        return primeFactorsOfInt;
+    }
+
+    public boolean isPrime(int n) {
+        int counter = 0;
+        for (int i = 1; i <= n; i++) {
+            if (n%i == 0) 
+                counter++;
+        }
+        return counter == 2;
     }
 
     /*
@@ -51,6 +96,10 @@ public class Lecture6Exercises {
      *   lecture 6 page 30
      */
     public List<String> extractWord(String line) {
-        return null;
+        List<String> extractedWords = new ArrayList<>();
+        for (String word: line.replaceAll("[^a-zA-Z1-9]", " ").split("\\s+"))
+            extractedWords.add(word);
+        
+        return extractedWords;
     }
 }
