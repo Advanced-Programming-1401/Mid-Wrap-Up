@@ -5,7 +5,11 @@ public class Lecture4Exercises {
      *   lecture 4 page 15
      */
     public long factorial(int n) {
-        return 0L;
+        if (n == 0) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
     }
 
     /*
@@ -14,7 +18,11 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public long fibonacci(int n) {
-        return 0;
+        if (n == 1 || n == 2) {
+            return 1;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
     }
 
     /*
@@ -22,7 +30,8 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public String reverse(String word) {
-        return null;
+        StringBuilder reversed = new StringBuilder(word);
+        return reversed.reverse().toString();
     }
 
     /*
@@ -32,21 +41,33 @@ public class Lecture4Exercises {
      *   lecture 4 page 19
      */
     public boolean isPalindrome(String line) {
-        return false;
+        String formatted = line.replaceAll("\\s+","").toLowerCase();
+        return formatted.equals(reverse(formatted));
     }
 
     /*
      *   implement a function which computes the dot plot of 2 given
      *   string. dot plot of hello and ali is:
      *       h e l l o
-     *   h   *
-     *   e     *
-     *   l       * *
-     *   l       * *
-     *   o           *
+     *   a   *
+     *   l       *
+     *   i         *
      *   lecture 4 page 26
      */
     public char[][] dotPlot(String str1, String str2) {
-        return null;
+        int len1 = str1.length();
+        int len2 = str2.length();
+        char[][] dotPlot = new char[len2][len1];
+        for (int i = 0; i < len2; i++) {
+            for (int j = 0; j < len1; j++) {
+                if (str2.charAt(i) == str1.charAt(j)) {
+                    dotPlot[i][j] = '*';
+                } else {
+                    dotPlot[i][j] = ' ';
+                }
+            }
+        }
+        return dotPlot;
     }
+
 }
