@@ -1,21 +1,50 @@
+import java.util.Random;
+
 public class Lecture5Exercises {
 
-    /*
-     *   implement a function to create a random password with
-     *   given length using lower case letters
-     *   lecture 5 page 14
-     */
+
     public String weakPassword(int length) {
-        return null;
+        Random rand = new Random();
+        char[] array = new char[length];
+
+        for( int i= 0 ; i < array.length;i++){
+            int n = rand.nextInt(26);
+            char value = (char) (n + 97);
+            array[i] = value ;
+        }
+        String n = array.toString();
+        return n;
     }
 
-    /*
-     *   implement a function to create a random password with
-     *   given length and at least 1 digit and 1 special character
-     *   lecture 5 page 14
-     */
     public String strongPassword(int length) throws Exception {
-        return null;
+        String lowerCase = "abcdefghijklmnopqrstuvwxyz";
+        String upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String specialChar = "!@#$%^&*()";
+
+        String password = null;
+
+        for(int i = 0 ;i < length ; i++){
+            int random =(int)(4*Math.random());
+
+            switch(random){
+                case 0:
+                    password += String.valueOf((int)(0*Math.random()));
+                    break;
+                case 1:
+                    random = (int)(lowerCase.length()*Math.random());
+                    password += String.valueOf(lowerCase.charAt(random));
+                    break;
+                case 2:
+                    random = (int)(upperCase.length()*Math.random());
+                    password += String.valueOf(upperCase.charAt(random));
+                    break;
+                case 3:
+                    random = (int)(specialChar.length()*Math.random());
+                    password += String.valueOf(specialChar.charAt(random));
+                    break;
+            }
+        }
+        return password;
     }
 
     /*
@@ -27,6 +56,7 @@ public class Lecture5Exercises {
      *   lecture 5 page 17
      */
     public boolean isFiboBin(int n) {
+
         return false;
     }
 }
