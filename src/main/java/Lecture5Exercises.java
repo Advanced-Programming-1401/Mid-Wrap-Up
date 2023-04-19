@@ -1,4 +1,4 @@
-public class Lecture5Exercises {
+public class Lecture5Exercises{
 
     /*
      *   implement a function to create a random password with

@@ -1,4 +1,4 @@
-public class Lecture4Exercises {
+public class Lecture4Exercises{
 
     /*
      *   implement a function that returns factorial of given n

@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Lecture6Exercises {
+public class Lecture6Exercises{
 
     /*
      *   implement a function that takes an array of int and return sum of
