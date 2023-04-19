@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Lecture5Exercises {
 
     /*
@@ -6,7 +8,15 @@ public class Lecture5Exercises {
      *   lecture 5 page 14
      */
     public String weakPassword(int length) {
-        return null;
+
+        Random random = new Random();
+        String letters = "qwertyuiopasdfghjklzxcvbnm";
+        char[] password = new char[length];
+        for (int i = 0; i < length; i++) {
+            password[i] = letters.charAt(random.nextInt(letters.length()));
+        }
+        String finalPass=  new String(password);
+        return finalPass;
     }
 
     /*
@@ -15,7 +25,22 @@ public class Lecture5Exercises {
      *   lecture 5 page 14
      */
     public String strongPassword(int length) throws Exception {
-        return null;
+
+        String letters ="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+        String numbers ="0123456789";
+        String specialchars="-/.^&*_!@%=+>";
+        String finalStr = letters + specialchars + numbers ;
+        Random random = new Random();
+        char[] password = new char[length];
+        password[0]=letters.charAt(random.nextInt(letters.length()));
+        password[1]=numbers.charAt(random.nextInt(numbers.length()));
+        password[2]=specialchars.charAt(random.nextInt(specialchars.length()));
+        for (int i = 3; i < length; i++) {
+            password[i] = finalStr.charAt(random.nextInt(finalStr.length()));
+        }
+        String finalPass=  new String(password);
+        return finalPass;
+
     }
 
     /*
