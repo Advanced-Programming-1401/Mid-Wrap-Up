@@ -6,7 +6,13 @@ public class Lecture5Exercises {
      *   lecture 5 page 14
      */
     public String weakPassword(int length) {
-        return null;
+        String alphabet="abcdefghijklmnopqrstuvwxyz";
+        String answer="";
+        for(int i=0;i<length;i++){
+            int random=(int)(alphabet.length() * Math.random());
+            answer+=alphabet.charAt(random);
+        }
+        return answer;
     }
 
     /*
@@ -15,7 +21,23 @@ public class Lecture5Exercises {
      *   lecture 5 page 14
      */
     public String strongPassword(int length) throws Exception {
-        return null;
+        String specialChar="!@#$%&*^?";
+        String alphabet="abcdefghijklmnopqrstuvwxyz";
+        String numbers="1234567890";
+        String answer="";
+        String answer2="";
+        String all=specialChar+alphabet+numbers;
+        int random1=(int)(specialChar.length() * Math.random());
+        answer+=random1;
+        int random2=(int)(numbers.length() * Math.random());
+        answer+=random2;
+        for(int i=2;i<length;i++){
+            int random=(int)(all.length() * Math.random());
+            answer+=all.charAt(random);
+        }
+
+        return answer;
+
     }
 
     /*
