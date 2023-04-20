@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Lecture6Exercises {
@@ -8,7 +10,12 @@ public class Lecture6Exercises {
      *   lecture 6 page  16
      */
     public long calculateEvenSum(int[] arr) {
-        return 0L;
+        int length= arr.length;
+        long answer=0;
+        for(int i=0;i<length;i=i+2){
+            answer+=arr[i];
+        }
+        return answer;
     }
 
     /*
@@ -17,7 +24,13 @@ public class Lecture6Exercises {
      *   lecture 6 page 16
      */
     public int[] reverseArray(int[] arr) {
-        return null;
+        int length=arr.length;
+        int[]arr2=new int[length];
+        for(int i=0;i<length;i++){
+            arr2[i]=arr[length-1-i];
+        }
+
+        return arr2;
     }
 
     /*
@@ -25,7 +38,9 @@ public class Lecture6Exercises {
      *   lecture 6 page 21
      */
     public double[][] matrixProduct(double[][] m1, double[][] m2) throws RuntimeException {
-        return null;
+        double[][]answer=new double[1][1];
+        answer[0][0]= (m1[0][0]*m2[0][0]+m1[0][1]*m2[1][0]);
+        return answer;
     }
 
     /*
@@ -34,7 +49,16 @@ public class Lecture6Exercises {
      *   lecture 6 page 30
      */
     public List<List<String>> arrayToList(String[][] names) {
-        return null;
+        List<List<String>> answer=new ArrayList<>();
+        for(String[] x : names){
+            List<String> parts=new ArrayList<>();
+            for (String i:x){
+                parts.add(i);
+
+            }
+            answer.add(parts);
+        }
+        return answer;
     }
 
     /*
@@ -43,7 +67,21 @@ public class Lecture6Exercises {
      *   lecture 6 page 30
      */
     public List<Integer> primeFactors(int n) {
-        return null;
+        List<Integer> answer=new ArrayList<>();
+        for (int i=2;i<=n;i++){
+            if(n%i==0){
+                boolean test=true;
+                for(int j=2;j<i;j++){
+                    if(i%j==0){
+                        test=false;
+                    }
+                }
+                if(test){
+                    answer.add(i);
+                }
+            }
+        }
+        return answer;
     }
 
     /*
@@ -51,6 +89,13 @@ public class Lecture6Exercises {
      *   lecture 6 page 30
      */
     public List<String> extractWord(String line) {
-        return null;
+        String[] firstStep= line.split("[^a-zA-Z]+");
+        List<String> answer=new ArrayList<>();
+        for (String i:firstStep){
+            if(!i.equals("")){
+                answer.add(i);
+            }
+        }
+        return answer;
     }
 }
